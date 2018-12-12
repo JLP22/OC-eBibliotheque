@@ -1,0 +1,32 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Les auteurs</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>Auteurs - Id</th>
+            <th>Auteurs - Nom</th>
+        </tr>
+        @foreach (OC_eBibliotheque.Models.Auteur auteur in ViewData["Auteurs"] as List<OC_eBibliotheque.Models.Auteur>)
+        {
+            <tr>
+                <td>@auteur.Id</td>
+                <td>@auteur.Nom</td>
+            </tr>
+        }
+    </table>
+    <br />
+    <div>
+        Url "/Afficher/Auteurs"
+    </div>
+</body>
+</html>

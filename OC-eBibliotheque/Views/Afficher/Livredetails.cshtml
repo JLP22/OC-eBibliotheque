@@ -1,0 +1,37 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Livre par son identifiant</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>Attribut</th>
+            <th>valeur</th>
+        </tr>
+        <tr>
+            <td> Titre </td>
+            <td>@ViewData["Titre"]</td>
+        </tr>
+        <tr>
+            <td> Date de parution</td>
+            <td>@ViewData["DateParution"]</td>
+        </tr>
+        <tr>
+            <td>Emprunteur </td>
+            <td>@ViewData["Emprunteur"]</td>
+        </tr>
+    </table>
+    <br />
+    <div>
+        Url "/Afficher/Livre/3"
+    </div>
+</body>
+</html>
