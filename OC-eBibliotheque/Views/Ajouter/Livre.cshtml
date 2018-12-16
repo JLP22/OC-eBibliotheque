@@ -1,0 +1,66 @@
+﻿@model OC_eBibliotheque.ViewModels.AjouterLivreViewModel
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Ajouter un livre</title>
+    <style type="text/css">
+        table {
+            border-collapse: collapse;
+        }
+
+        td, th {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+       
+    </div>
+    <br />
+
+    <div>
+        @using (Html.BeginForm())
+            {
+        <fieldset>
+            <legend>Ajout d'un livre à la bibliothèque</legend>
+            <div style="display: table;">
+                <div style="display: table-row">
+                    <div style="display: table-cell;">
+                        @Html.LabelFor(model => model.Titre) : <br />
+                        @Html.LabelFor(model => model.DateParution) : <br />
+                        @Html.LabelFor(model => model.SelectedAuteurs) : <br />
+                    </div>
+                    <div style="display: table-cell;">
+                        @Html.TextBoxFor(model => model.Titre)<br />
+                        @Html.TextBoxFor(model => model.DateParution)<br />
+                        @Html.DropDownListFor(model => model.SelectedAuteurs, new SelectList(Model.AuteursList, "Value", "Text"))<br />
+                    </div>
+                    <div style="display: table-cell;">
+                        @Html.ValidationMessageFor(model => model.Titre)<br />
+                        @Html.ValidationMessageFor(model => model.DateParution)<br />
+                        @Html.ValidationMessageFor(model => model.SelectedAuteurs)<br />
+                    </div>
+
+                </div>
+            </div>
+
+        <br /><br />
+<input type="submit" value="Ajouter" />
+</fieldset>
+            }
+    </div>
+    <br />
+
+    <div>
+        Url "/" ou "/Afficher" ou "/Afficher/Livres"
+    </div>
+</body>
+
+</html>

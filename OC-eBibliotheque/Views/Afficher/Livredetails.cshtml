@@ -1,4 +1,4 @@
-﻿
+﻿@model OC_eBibliotheque.Models.Livre
 @{
     Layout = null;
 }
@@ -9,6 +9,15 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Livre par son identifiant</title>
+    <style type="text/css">
+        table {
+            border-collapse: collapse;
+        }
+
+        td, th {
+            border: 1px solid black;
+        }
+    </style>
 </head>
 <body>
     <table>
@@ -18,15 +27,15 @@
         </tr>
         <tr>
             <td> Titre </td>
-            <td>@ViewData["Titre"]</td>
+            <td>@Model.Titre</td>
         </tr>
         <tr>
             <td> Date de parution</td>
-            <td>@ViewData["DateParution"]</td>
+            <td>@Model.DateParution</td>
         </tr>
         <tr>
             <td>Emprunteur </td>
-            <td>@ViewData["Emprunteur"]</td>
+            <td>@Model.Emprunteur.Nom</td>
         </tr>
     </table>
     <br />

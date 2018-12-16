@@ -1,4 +1,4 @@
-﻿
+﻿@model List<OC_eBibliotheque.Models.Auteur>
 @{
     Layout = null;
 }
@@ -9,6 +9,15 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Les auteurs</title>
+    <style type="text/css">
+        table {
+            border-collapse: collapse;
+        }
+
+        td, th {
+            border: 1px solid black;
+        }
+    </style>
 </head>
 <body>
     <table>
@@ -16,7 +25,7 @@
             <th>Auteurs - Id</th>
             <th>Auteurs - Nom</th>
         </tr>
-        @foreach (OC_eBibliotheque.Models.Auteur auteur in ViewData["Auteurs"] as List<OC_eBibliotheque.Models.Auteur>)
+        @foreach (OC_eBibliotheque.Models.Auteur auteur in Model)
         {
             <tr>
                 <td>@auteur.Id</td>

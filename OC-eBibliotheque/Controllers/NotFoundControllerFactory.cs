@@ -7,6 +7,8 @@ using System.Web.Routing;
 
 namespace OC_eBibliotheque.Controllers
 {
+    /* 
+     * Remplacer par contraintes sur les routes
     public class NotFoundControllerFactory : DefaultControllerFactory
     {
         protected override IController GetControllerInstance(RequestContext requestContext, Type controllerType)
@@ -22,5 +24,5 @@ namespace OC_eBibliotheque.Controllers
 
             return base.GetControllerInstance(requestContext, controllerType);
         }
-    }
+    }*/
 }

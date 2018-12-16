@@ -142,20 +142,24 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AfficherController.cs" />
+    <Compile Include="Controllers\AjouterController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MyRouteConstraint.cs" />
     <Compile Include="Controllers\NotFoundControllerFactory.cs" />
     <Compile Include="Controllers\RechercherController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Auteur.cs" />
-    <Compile Include="Models\Auteurs.cs" />
     <Compile Include="Models\Client.cs" />
-    <Compile Include="Models\Clients.cs" />
+    <Compile Include="Models\DalEnDur.cs" />
+    <Compile Include="Models\Dal.cs" />
+    <Compile Include="Models\IDal.cs" />
     <Compile Include="Models\Livre.cs" />
-    <Compile Include="Models\Livres.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\AjouterLivreViewModel.cs" />
+    <Compile Include="ViewModels\RechercherViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -201,6 +205,8 @@
     <Content Include="Views\Afficher\AuteurLivres.cshtml" />
     <Content Include="Views\Afficher\LivreDetails.cshtml" />
     <Content Include="Views\Rechercher\RechercherLivres.cshtml" />
+    <Content Include="Views\Rechercher\Index.cshtml" />
+    <Content Include="Views\Ajouter\Livre.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

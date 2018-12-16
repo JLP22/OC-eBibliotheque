@@ -17,7 +17,8 @@ namespace OC_eBibliotheque
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-            ControllerBuilder.Current.SetControllerFactory(new NotFoundControllerFactory());
+            //Remplacer par contraintes sur les routes
+            //ControllerBuilder.Current.SetControllerFactory(new NotFoundControllerFactory());
         }
 
     }

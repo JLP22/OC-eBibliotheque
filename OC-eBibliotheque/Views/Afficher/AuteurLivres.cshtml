@@ -1,4 +1,4 @@
-﻿
+﻿@model List<OC_eBibliotheque.Models.Livre>
 @{
     Layout = null;
 }
@@ -9,6 +9,15 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Livres d’un auteur par son identifiant</title>
+    <style type="text/css">
+        table {
+            border-collapse: collapse;
+        }
+
+        td, th {
+            border: 1px solid black;
+        }
+    </style>
 </head>
 <body>
     <table>
@@ -17,7 +26,7 @@
             <th>Titre</th>
             <th>Date parution</th>
         </tr>
-        @foreach (OC_eBibliotheque.Models.Livre livre in ViewData["AuteurLivres"] as List<OC_eBibliotheque.Models.Livre>)
+        @foreach (OC_eBibliotheque.Models.Livre livre in Model)
         {
             <tr>
                 <td>@livre.Id</td>

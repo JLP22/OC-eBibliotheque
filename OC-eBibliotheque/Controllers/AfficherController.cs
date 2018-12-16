@@ -9,19 +9,21 @@ namespace OC_eBibliotheque.Controllers
 {
     public class AfficherController : Controller
     {
+
+        //Pour eviter des using dans le corps de l'action (factorise dal)
+        private IDal dal = new DalEnDur();
+
         public ActionResult Livres()
         {
-            Livres livres = new Livres();
-            ViewData["Livres"] = livres.ObtenirListeLivres();
-            return View("Livres");
+            List<Livre> ListeDesLivres = dal.ObtenirListeLivres();
+            return View("Livres", ListeDesLivres);
             
         }
 
         public ActionResult Auteurs()
         {
-            Auteurs auteurs = new Auteurs();
-            ViewData["Auteurs"] = auteurs.ObtenirListeAuteurs();
-            return View("Auteurs");
+            List<Auteur> listedesAuteurs = dal.ObtenirListeAuteurs();
+            return View("Auteurs", listedesAuteurs);
         }
 
         public ActionResult Auteur(string id)
@@ -38,13 +40,11 @@ namespace OC_eBibliotheque.Controllers
                     return View("Error");
                 else
                 {
-                    Livres livres = new Livres();
-                    List<Livre> auteurLivres = livres.ObtenirListeLivresAuteur(numId);
+                    List<Livre> auteurLivres = dal.ObtenirListeLivresAuteur(numId);
 
                     if (auteurLivres.Count > 0)
                     {
-                        ViewData["AuteurLivres"] = auteurLivres;
-                        return View("AuteurLivres");
+                        return View("AuteurLivres", auteurLivres);
                     }
                     else return View("Error");
                 }
@@ -65,18 +65,13 @@ namespace OC_eBibliotheque.Controllers
                     return View("Error");
                 else
                 {
-                    Livres livres = new Livres();
-                    Livre livredetails = livres.ObtenirLivreParId(numId);
+                    Livre livredetails = dal.ObtenirLivreParId(numId);
 
                     if (livredetails == null)
                         return View("Error");
                     else
                     {
-                        ViewData["Titre"] = livredetails.Titre;
-                        ViewData["DateParution"] = livredetails.DateParution;
-                        ViewData["Emprunteur"] = livredetails.Emprunteur.Nom + " - " + livredetails.Emprunteur.Email;
-
-                        return View("LivreDetails");
+                        return View("LivreDetails", livredetails);
                     }
                 }
             }

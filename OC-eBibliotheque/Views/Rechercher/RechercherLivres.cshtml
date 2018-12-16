@@ -1,4 +1,5 @@
-﻿@{
+﻿@model List<OC_eBibliotheque.Models.Livre>
+@{
     Layout = null;
 }
 <!DOCTYPE html>
@@ -6,16 +7,30 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Rechercher livre</title>
+    <title>Rechercher livres : résultats </title>
+    <style type="text/css">
+        table {
+            border-collapse: collapse;
+        }
+
+        td, th {
+            border: 1px solid black;
+        }
+    </style>
 </head>
 
 <body>
+    <div>
+        @Model.Count() résultat(s) trouvé(s).
+    </div>
+    <br />
     <table>
         <tr>
             <th>Titre</th>
             <th>Auteur</th>
         </tr>
-        @foreach (OC_eBibliotheque.Models.Livre livre in ViewData["RechercherLivres"] as List<OC_eBibliotheque.Models.Livre>)
+
+        @foreach (OC_eBibliotheque.Models.Livre livre in Model)
         {
             <tr>
                 <td>@livre.Titre</td>
@@ -23,10 +38,10 @@
             </tr>
         }
     </table>
-    <br/>
+    <br />
     <div>
         Url "/" ou "/Afficher" ou "/Afficher/Livres"
     </div>
 </body>
-    
+
 </html>

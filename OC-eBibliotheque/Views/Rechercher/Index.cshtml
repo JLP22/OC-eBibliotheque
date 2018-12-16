@@ -1,0 +1,26 @@
+﻿@model OC_eBibliotheque.ViewModels.RechercherViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Rechercher livres : critères </title>
+</head>
+<body>
+    <div>
+       @using (Html.BeginForm())
+        {
+        <fieldset>
+            <legend>Recherche dans les titres de livre et les noms des auteurs</legend>
+            @Html.LabelFor(model => model.Chaine)
+            @Html.TextBoxFor(model => model.Chaine)
+            <input type="submit" value="Rechercher" />
+        </fieldset>
+        }
+    </div>
+</body>
+</html>

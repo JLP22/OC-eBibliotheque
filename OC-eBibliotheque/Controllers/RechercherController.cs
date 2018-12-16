@@ -9,6 +9,30 @@ namespace OC_eBibliotheque.Controllers
 {
     public class RechercherController : Controller
     {
+        //Pour eviter des using dans le corps de l'action (factorise dal)
+        private IDal dal = new DalEnDur();
+
+        // GET: Rechercher
+        public ActionResult Index()
+        {
+                return View();
+        }
+
+        //envoi du formulaire à la vue (post)
+        [HttpPost]
+        [ActionName("Index")]
+        public ActionResult IndexPost(string chaine)
+        {
+            //Si la chaine est vide, on reste sur la page
+            if (string.IsNullOrWhiteSpace(chaine))
+                return View();
+            //Sinon on affiche la liste des livres
+            else
+            {
+                return RedirectToAction("Livre", new { chaine = chaine });
+            }
+        }
+
         // GET: Rechercher
         public ActionResult Livre(string chaine)
         {
@@ -17,11 +41,13 @@ namespace OC_eBibliotheque.Controllers
                 return View("Error");
             else
             {
-                Livres livres = new Livres();
-                ViewData["RechercherLivres"] = livres.ObtenirListeLivresAvecTitreOuNomAuteurContenant(chaine.ToUpper());
-                return View("RechercherLivres");
+
+                List<Livre> ListeDesLivres = dal.ObtenirListeLivresAvecTitreOuNomAuteurContenant(chaine.ToUpper());
+                return View("RechercherLivres", ListeDesLivres);
             }
         }
-      
+
+
+
     }
 }
