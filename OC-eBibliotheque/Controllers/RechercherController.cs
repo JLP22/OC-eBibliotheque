@@ -9,8 +9,16 @@ namespace OC_eBibliotheque.Controllers
 {
     public class RechercherController : Controller
     {
-        //Pour eviter des using dans le corps de l'action (factorise dal)
-        private IDal dal = new DalEnDur();
+        private IDal dal;
+
+        public RechercherController() : this(new DalEnDur())
+        {
+        }
+
+        public RechercherController(IDal dalIoc)
+        {
+            dal = dalIoc;
+        }
 
         // GET: Rechercher
         public ActionResult Index()

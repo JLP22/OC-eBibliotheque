@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OC_eBibliotheque.Models
 {
-    interface IDal : IDisposable
+    public interface IDal : IDisposable
     {
 
         List<Client> ObtenirListeClients();

@@ -10,8 +10,16 @@ namespace OC_eBibliotheque.Controllers
     public class AfficherController : Controller
     {
 
-        //Pour eviter des using dans le corps de l'action (factorise dal)
-        private IDal dal = new DalEnDur();
+        private IDal dal;
+
+        public AfficherController() : this(new DalEnDur())
+        {
+        }
+
+        public AfficherController(IDal dalIoc)
+        {
+            dal = dalIoc;
+        }
 
         public ActionResult Livres()
         {

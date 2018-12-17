@@ -11,8 +11,16 @@ namespace OC_eBibliotheque.Controllers
     public class AjouterController : Controller
     {
 
-        //Pour eviter des using dans le corps de l'action (factorise dal)
-        private IDal dal = new DalEnDur();
+        private IDal dal;
+
+        public AjouterController() : this(new DalEnDur())
+        {
+        }
+
+        public AjouterController(IDal dalIoc)
+        {
+            dal = dalIoc;
+        }
 
         // GET: Ajouter
         public ActionResult Livre()

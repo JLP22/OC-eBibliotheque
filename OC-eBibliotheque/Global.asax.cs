@@ -19,6 +19,7 @@ namespace OC_eBibliotheque
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             //Remplacer par contraintes sur les routes
             //ControllerBuilder.Current.SetControllerFactory(new NotFoundControllerFactory());
+
         }
 
     }
