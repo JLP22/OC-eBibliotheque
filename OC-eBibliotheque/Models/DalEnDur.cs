@@ -15,40 +15,7 @@ namespace OC_eBibliotheque.Models
         //Constructeur
         public DalEnDur()
         {
-            //Clients par défaut
-            /*listeDesClients = new List<Client>
-            {
-                new Client { Nom = "NomClient1", Email = "Client1@email.com" },
-                new Client { Nom = "NomClient2", Email = "Client2@email.com" }
-            };
-
-            //Auteurs par défaut
-            listeDesAuteurs = new List<Auteur>
-            {
-                new Auteur { Id = 1, Nom = "auteur1" },
-                new Auteur { Id = 2, Nom = "auteur2" },
-                new Auteur { Id = 3, Nom = "auteur3" }
-            };
             
-            //Livres par défaut
-
-            Auteur auteur1 = ObtenirListeAuteurs().FirstOrDefault(c => c.Id == 1);
-            Auteur auteur2 = ObtenirListeAuteurs().FirstOrDefault(c => c.Id == 2);
-            Auteur auteur3 = ObtenirListeAuteurs().FirstOrDefault(c => c.Id == 3);
-
-            Client client1 = ObtenirListeClients().FirstOrDefault(c => c.Email == "Client1@email.com");
-            Client client2 = ObtenirListeClients().FirstOrDefault(c => c.Email == "Client2@email.com");
-
-            listeDesLivres = new List<Livre>
-            {
-                new Livre { Id = 1, Titre = "Titre livre 1", DateParution = DateTime.Now.AddMonths(-1).ToString("d") , Auteur = auteur1, Emprunteur = client1 },
-                new Livre { Id = 2, Titre = "Titre livre 2", DateParution = DateTime.Now.AddMonths(-2).ToString("d") , Auteur = auteur2, Emprunteur = client2 },
-                new Livre { Id = 3, Titre = "Titre livre 3", DateParution = DateTime.Now.AddMonths(-3).ToString("d") , Auteur = auteur3, Emprunteur = client1 },
-                new Livre { Id = 4, Titre = "Titre livre 4", DateParution = DateTime.Now.AddMonths(-4).ToString("d") , Auteur = auteur1  },
-                new Livre { Id = 5, Titre = "Titre livre 5", DateParution = DateTime.Now.AddMonths(-5).ToString("d") , Auteur = auteur2  }
-            };
-            */
-
             //Utilistation Bdd chargé en mémoire
             listeDesClients = Bdd.Clients;
             listeDesAuteurs = Bdd.Auteurs;

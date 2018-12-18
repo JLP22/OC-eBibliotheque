@@ -156,7 +156,6 @@
     <Compile Include="Models\Bdd.cs" />
     <Compile Include="Models\Clients.cs" />
     <Compile Include="Models\DalEnDur.cs" />
-    <Compile Include="Models\Dal.cs" />
     <Compile Include="Models\IDal.cs" />
     <Compile Include="Models\Livre.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
