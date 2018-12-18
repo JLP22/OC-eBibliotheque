@@ -16,7 +16,7 @@ namespace OC_eBibliotheque.Models
         public DalEnDur()
         {
             //Clients par défaut
-            listeDesClients = new List<Client>
+            /*listeDesClients = new List<Client>
             {
                 new Client { Nom = "NomClient1", Email = "Client1@email.com" },
                 new Client { Nom = "NomClient2", Email = "Client2@email.com" }
@@ -29,7 +29,7 @@ namespace OC_eBibliotheque.Models
                 new Auteur { Id = 2, Nom = "auteur2" },
                 new Auteur { Id = 3, Nom = "auteur3" }
             };
-
+            
             //Livres par défaut
 
             Auteur auteur1 = ObtenirListeAuteurs().FirstOrDefault(c => c.Id == 1);
@@ -47,7 +47,13 @@ namespace OC_eBibliotheque.Models
                 new Livre { Id = 4, Titre = "Titre livre 4", DateParution = DateTime.Now.AddMonths(-4).ToString("d") , Auteur = auteur1  },
                 new Livre { Id = 5, Titre = "Titre livre 5", DateParution = DateTime.Now.AddMonths(-5).ToString("d") , Auteur = auteur2  }
             };
-          
+            */
+
+            //Utilistation Bdd chargé en mémoire
+            listeDesClients = Bdd.Clients;
+            listeDesAuteurs = Bdd.Auteurs;
+            listeDesLivres = Bdd.Livres;
+
         }
 
         //------------------------------------------------------------------------------------------------------------------------------------------------------------

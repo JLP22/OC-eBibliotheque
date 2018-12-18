@@ -25,23 +25,7 @@ namespace OC_eBibliotheque.Controllers
         // GET: Ajouter
         public ActionResult Livre()
         {
-            //Création de la liste à afficher
-            List<SelectListItem> auteursSelectListItem = new List<SelectListItem>();
-
-            foreach (Auteur auteur in dal.ObtenirListeAuteurs())
-            {
-                SelectListItem selectList = new SelectListItem()
-                {
-                    Text = auteur.Nom,
-                    Value = auteur.Id.ToString()
-                };
-                auteursSelectListItem.Add(selectList);
-            }
-            AjouterLivreViewModel ajouterLivreViewModel = new AjouterLivreViewModel
-            {
-                AuteursList = auteursSelectListItem
-            };
-
+            AjouterLivreViewModel ajouterLivreViewModel = new AjouterLivreViewModel();
             return View(ajouterLivreViewModel);
         }
 
@@ -59,7 +43,7 @@ namespace OC_eBibliotheque.Controllers
             if (_livres.FirstOrDefault(c => c.Titre == ajouterLivreViewModel.Titre) != null)
             {
                 //Renvoi message d'erreur
-                ModelState.AddModelError("Nom", "Ce livre existe déjà");
+                ModelState.AddModelError("Titre", "Ce livre existe déjà");
                 return View(ajouterLivreViewModel);
             }
 

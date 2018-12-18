@@ -23,6 +23,30 @@ namespace OC_eBibliotheque.ViewModels
         [Display(Name = "Auteur")]
         [Required(ErrorMessage = "L'auteur du livre doit être saisi")]
         public List<string> SelectedAuteurs { get; set; }
-        public List<SelectListItem> AuteursList { get; set; }
-    }
+        public List<SelectListItem> AuteursList {
+            get {
+                return InitialiseListAuteur();
+            }
+        }
+
+        private IDal dal;
+
+        private List<SelectListItem> InitialiseListAuteur()
+        {
+            //Création de la liste à afficher
+            List<SelectListItem> auteursSelectListItem = new List<SelectListItem>();
+            dal = new DalEnDur();
+            foreach (Auteur auteur2 in dal.ObtenirListeAuteurs())
+            {
+                SelectListItem selectList = new SelectListItem()
+                {
+                    Text = auteur2.Nom,
+                    Value = auteur2.Id.ToString()
+                };
+                auteursSelectListItem.Add(selectList);
+            }
+
+            return auteursSelectListItem;
+        }
+    }   
 }

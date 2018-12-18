@@ -35,7 +35,14 @@
         </tr>
         <tr>
             <td>Emprunteur </td>
-            <td>@Model.Emprunteur.Nom</td>
+            @if (Model.Emprunteur != null)
+            {
+                <td>@Model.Emprunteur.Nom </td>
+            }
+            else
+            {
+                <td> </td>
+            }
         </tr>
     </table>
     <br />
