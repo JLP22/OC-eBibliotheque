@@ -208,6 +208,7 @@
     <Content Include="Views\Rechercher\RechercherLivres.cshtml" />
     <Content Include="Views\Rechercher\Index.cshtml" />
     <Content Include="Views\Ajouter\Livre.cshtml" />
+    <Content Include="Views\Shared\LayoutDuSite.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,50 +1,30 @@
 ﻿@model OC_eBibliotheque.Models.Livre
 @{
-    Layout = null;
+    Layout = "~/Views/Shared/LayoutDuSite.cshtml";
+    ViewBag.Title = "Livre - détails";
 }
-
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Livre par son identifiant</title>
-    <link type="text/css" href="~/Content/Site.css" rel="stylesheet" />
-</head>
-<body>
-    <div>
-        @Html.ActionLink("Liste des livres", "Livres", "Afficher") &nbsp;&nbsp;&nbsp;
-        @Html.ActionLink("Détails livre 1", "Livre", "Afficher", new { id = 1 }, null)&nbsp;&nbsp;&nbsp;
-        @Html.ActionLink("Liste des auteurs", "Auteurs", "Afficher")&nbsp;&nbsp;&nbsp;
-        @Html.ActionLink("Rechercher - critères", "Index", "Rechercher")&nbsp;&nbsp;&nbsp;
-        @Html.ActionLink("Rechercher - résultats (ex chaine 'titre')", "Livre", "rechercher", new { chaine = "titre" }, null)&nbsp;&nbsp;&nbsp;
-        @Html.ActionLink("Ajouter un livre", "Livre", "Ajouter")
-    </div> <br />
-    <table>
-        <tr>
-            <th>Attribut</th>
-            <th>valeur</th>
-        </tr>
-        <tr>
-            <td> Titre </td>
-            <td>@Model.Titre</td>
-        </tr>
-        <tr>
-            <td> Date de parution</td>
-            <td>@Model.DateParution</td>
-        </tr>
-        <tr>
-            <td>Emprunteur </td>
-            @if (Model.Emprunteur != null)
-            {
-                <td>@Model.Emprunteur.Nom </td>
-            }
-            else
-            {
-                <td> </td>
-            }
-        </tr>
-    </table>
-    <br />
-</body>
-</html>
+<table>
+    <tr>
+        <th>Attribut</th>
+        <th>valeur</th>
+    </tr>
+    <tr>
+        <td> Titre </td>
+        <td>@Model.Titre</td>
+    </tr>
+    <tr>
+        <td> Date de parution</td>
+        <td>@Model.DateParution</td>
+    </tr>
+    <tr>
+        <td>Emprunteur </td>
+        @if (Model.Emprunteur != null)
+        {
+            <td>@Model.Emprunteur.Nom </td>
+        }
+        else
+        {
+            <td> </td>
+        }
+    </tr>
+</table>

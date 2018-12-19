@@ -1,44 +1,23 @@
 ﻿@model List<OC_eBibliotheque.Models.Livre>
 @{
-    Layout = null;
+    Layout = "~/Views/Shared/LayoutDuSite.cshtml";
+    ViewBag.Title = "Livres - Résultat(s)";
 }
-<!DOCTYPE html>
+<div>
+    @Model.Count() résultat(s) trouvé(s).
+</div>
+<br />
+<table>
+    <tr>
+        <th>Titre</th>
+        <th>Auteur</th>
+    </tr>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Rechercher livres : résultats </title>
-    <link type="text/css" href="~/Content/Site.css" rel="stylesheet" />
-</head>
-
-<body>
-    <div>
-        @Html.ActionLink("Liste des livres", "Livres", "Afficher") &nbsp;&nbsp;&nbsp;
-        @Html.ActionLink("Détails livre 1", "Livre", "Afficher", new { id = 1 }, null)&nbsp;&nbsp;&nbsp;
-        @Html.ActionLink("Liste des auteurs", "Auteurs", "Afficher")&nbsp;&nbsp;&nbsp;
-        @Html.ActionLink("Rechercher - critères", "Index", "Rechercher")&nbsp;&nbsp;&nbsp;
-        @Html.ActionLink("Rechercher - résultats (ex chaine 'titre')", "Livre", "rechercher", new { chaine = "titre" }, null)&nbsp;&nbsp;&nbsp;
-        @Html.ActionLink("Ajouter un livre", "Livre", "Ajouter")
-    </div> <br />
-    <div>
-        @Model.Count() résultat(s) trouvé(s).
-    </div>
-    <br />
-    <table>
+    @foreach (OC_eBibliotheque.Models.Livre livre in Model)
+    {
         <tr>
-            <th>Titre</th>
-            <th>Auteur</th>
+            <td>@livre.Titre</td>
+            <td>@livre.Auteur.Nom</td>
         </tr>
-
-        @foreach (OC_eBibliotheque.Models.Livre livre in Model)
-        {
-            <tr>
-                <td>@livre.Titre</td>
-                <td>@livre.Auteur.Nom</td>
-            </tr>
-        }
-    </table>
-    <br />
-</body>
-
-</html>
+    }
+</table>

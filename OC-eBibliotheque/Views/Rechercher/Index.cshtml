@@ -1,35 +1,16 @@
 ﻿@model OC_eBibliotheque.ViewModels.RechercherViewModel
 @{
-    Layout = null;
+    Layout = "~/Views/Shared/LayoutDuSite.cshtml";
+    ViewBag.Title = "Livres - Rechercher";
 }
 
-<!DOCTYPE html>
+@using (Html.BeginForm())
+{
+    <fieldset>
+        <legend>Recherche dans les titres de livre et les noms des auteurs</legend>
+        @Html.LabelFor(model => model.Chaine)
+        @Html.TextBoxFor(model => model.Chaine)
+        <input type="submit" value="Rechercher" />
+    </fieldset>
+}
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Rechercher livres : critères </title>
-    <link type="text/css" href="~/Content/Site.css" rel="stylesheet" />
-</head>
-<body>
-    <div>
-        @Html.ActionLink("Liste des livres", "Livres", "Afficher") &nbsp;&nbsp;&nbsp;
-        @Html.ActionLink("Détails livre 1", "Livre", "Afficher", new { id = 1 }, null)&nbsp;&nbsp;&nbsp;
-        @Html.ActionLink("Liste des auteurs", "Auteurs", "Afficher")&nbsp;&nbsp;&nbsp;
-        @Html.ActionLink("Rechercher - critères", "Index", "Rechercher")&nbsp;&nbsp;&nbsp;
-        @Html.ActionLink("Rechercher - résultats (ex chaine 'titre')", "Livre", "rechercher", new { chaine = "titre" }, null)&nbsp;&nbsp;&nbsp;
-        @Html.ActionLink("Ajouter un livre", "Livre", "Ajouter")
-    </div> <br />
-    <div>
-        @using (Html.BeginForm())
-        {
-            <fieldset>
-                <legend>Recherche dans les titres de livre et les noms des auteurs</legend>
-                @Html.LabelFor(model => model.Chaine)
-                @Html.TextBoxFor(model => model.Chaine)
-                <input type="submit" value="Rechercher" />
-            </fieldset>
-        }
-    </div>
-</body>
-</html>
